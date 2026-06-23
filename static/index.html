@@ -9,7 +9,8 @@
   html, body { height: 100%; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6f8; color: #222; }
 
   /* ===== 顶部 Tab ===== */
-  .tab-bar { display: flex; background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 24px; }
+  .tab-bar { display: flex; background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 24px; justify-content: space-between; align-items: center; }
+  .tabs-left { display: flex; }
   .tab { padding: 14px 22px; font-size: 14px; color: #6b7280; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; }
   .tab:hover { color: #4f8cff; }
   .tab.active { color: #4f8cff; border-bottom-color: #4f8cff; font-weight: 600; }
@@ -324,10 +325,13 @@
 
 <!-- ============ Tab 导航 ============ -->
 <div class="tab-bar">
-  <div class="tab active" data-tab="list">📝 列表管理</div>
-  <div class="tab" data-tab="qa">🧠 智能问答</div>
-  <div class="tab" data-tab="freechat">💬 自由对话</div>
-  <div class="tab" data-tab="import">📥 文档导入</div>
+  <div class="tabs-left">
+    <div class="tab active" data-tab="list">📝 列表管理</div>
+    <div class="tab" data-tab="qa">🧠 智能问答</div>
+    <div class="tab" data-tab="freechat">💬 自由对话</div>
+    <div class="tab" data-tab="import">📥 文档导入</div>
+  </div>
+  <button class="btn btn-secondary" id="btnOpenSettings" style="margin-left:auto;">⚙ 大模型配置</button>
 </div>
 
 <!-- ============ Tab 1: 列表管理 ============ -->
@@ -754,6 +758,8 @@ function switchTab(name) {
 document.querySelectorAll(".tab").forEach(el => {
   el.addEventListener("click", () => switchTab(el.dataset.tab));
 });
+document.getElementById("btnOpenSettings").addEventListener("click", openLlmSettings);
+document.getElementById("btnSaveSettings").addEventListener("click", saveLlmSettings);
 
 /* ==================== 自由对话：管理会话 & 消息 ==================== */
 let freechatCurrentSessionId = null;
