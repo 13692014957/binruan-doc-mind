@@ -98,19 +98,19 @@ INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 #### 1. 构建 Docker 镜像
 
 ```bash
-docker build -t siyuan-knowledge-network .
+docker build -t binruan-doc-mind .
 ```
 
 #### 2. 运行容器
 
 **Windows PowerShell:**
 ```powershell
-docker run -d -p 8000:8000 -v ${PWD}\data:/app/data -v ${PWD}\models:/app/.hf_models siyuan-knowledge-network
+docker run -d -p 8000:8000 -v ${PWD}\data:/app/data -v ${PWD}\models:/app/.hf_models binruan-doc-mind
 ```
 
 **Linux/Mac:**
 ```bash
-docker run -d -p 8000:8000 -v $(pwd)/data:/app/data -v $(pwd)/models:/app/.hf_models siyuan-knowledge-network
+docker run -d -p 8000:8000 -v $(pwd)/data:/app/data -v $(pwd)/models:/app/.hf_models binruan-doc-mind
 ```
 
 **参数说明：**
@@ -139,7 +139,7 @@ docker stop <容器ID或容器名称>
 docker rm <容器ID或容器名称>
 
 # 重新构建镜像
-docker build -t siyuan-knowledge-network .
+docker build -t binruan-doc-mind .
 ```
 
 **注意事项：**
